@@ -65,3 +65,14 @@ a173.contains(2)
 var cnt = a173.count
 
 //var seventh = a173[7]
+
+var ages2 = [ "Kim": 10, "Lee": 20 ]
+let a1 = ages2["Kim"]
+print(a1)
+
+let a2 = ages2["Kim"]!
+print(a2)
+
+let a3 = ages["Park"]
+print(a3)
+

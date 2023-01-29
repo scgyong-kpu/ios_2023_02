@@ -59,3 +59,9 @@ blank_array = []
 var ages = [ "Kim": 10, "Lee": 20 ]
 ages = [:]
 
+var a173 = [ 1, 7, 3 ]
+a173.contains(7)
+a173.contains(2)
+var cnt = a173.count
+
+//var seventh = a173[7]

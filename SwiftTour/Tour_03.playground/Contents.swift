@@ -52,3 +52,26 @@ case let x where x > 20:
 default:
     print("kid")
 }
+
+let counts = [ 3, 832, 8437, 39, 0, 8, 3335422 ]
+for count in counts {
+    var prefix: String
+    switch count {
+    case 0:
+        prefix = "no"
+    case 1...3:
+        prefix = "a few"
+    case 4...9:
+        prefix = "sevaral"
+    case 10...99:
+        prefix = "tens of"
+    case 100..<1000:
+        prefix = "hundreds of"
+    case 1000..<1_000_000:
+        prefix = "thousands of"
+    default:
+        prefix = "so many"
+    }
+    print("\(prefix) stars")
+}
+

@@ -14,7 +14,10 @@ bornIn += 1
 var seconds = 3.3
 seconds = 4 // Double 형 변수에 Int 값을 넣는 것은 괜찮다
 
-var value = 10
-value = 4.2
+var value1 = 10.0
+var value2: Double = 10
+
+value1
+value2
 
 

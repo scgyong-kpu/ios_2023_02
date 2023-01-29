@@ -2,7 +2,7 @@ import Foundation
 
 var greeting = "Hello, playground"
 
-var name = "GyonG"
+var name:String = "GyonG"
 name = 12
 var age = 20
 

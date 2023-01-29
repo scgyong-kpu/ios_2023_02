@@ -42,7 +42,7 @@ type(of: xy)
 let xy2: [Double] = [ 1, 2 ]
 type(of: xy2)
 
-let xy3: [Double] = [ x, y ]
+let xy3 = [ Double(x), Double(y) ]
 type(of: xy3)
 
 

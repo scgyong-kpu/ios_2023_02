@@ -45,5 +45,14 @@ type(of: xy2)
 let xy3 = [ Double(x), Double(y) ]
 type(of: xy3)
 
-let what:[CustomStringConvertible] = [ "Swift", 5.0 ]
+let what: [CustomStringConvertible] = [ "Swift", 5.0 ]
 what
+
+var blank_array: [String] = []
+blank_array.append("Kim")
+
+blank_array = []
+
+var some_array = []
+some_array.append("Hello")
+

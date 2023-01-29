@@ -39,4 +39,16 @@ for char in puzzleIn {
         puzzleOut.append(char)
     }
 }
-print(puzzleOut)
+//print(puzzleOut)
+
+var age = 20
+switch age {
+case 20:
+    print("Just adult")
+case let x where x > 20:
+    print("Adult")
+case let x where x >= 13:
+    print("Teenagers")
+//default:
+//    print("kid")
+}

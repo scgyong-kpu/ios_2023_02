@@ -26,6 +26,17 @@ for integerToDescribe in integers {
     default:
         description += " an integer."
     }
-    print(description)
+//    print(description)
 }
 
+let puzzleIn = "great minds think alike"
+var puzzleOut = ""
+for char in puzzleIn {
+    switch char {
+    case "a", "e", "i", "o", "u", " ":
+        continue
+    default:
+        puzzleOut.append(char)
+    }
+}
+print(puzzleOut)

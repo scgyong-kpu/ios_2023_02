@@ -20,3 +20,12 @@ nums
 nums.sort()
 nums
 
+let a = [ 1, 2, 3 ]
+var b = a
+var c = b
+b[1] = 100
+
+a
+b
+c
+

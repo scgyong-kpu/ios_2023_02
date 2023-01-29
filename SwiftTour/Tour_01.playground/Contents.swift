@@ -20,4 +20,7 @@ var value2: Double = 10
 value1
 value2
 
+let pi = 3.14
+let msg = "value of π is \(pi)"
+print(msg)
 

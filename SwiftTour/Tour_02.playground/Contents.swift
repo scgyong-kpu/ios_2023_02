@@ -57,5 +57,5 @@ blank_array = []
 //some_array.append("Hello")
 
 var ages = [ "Kim": 10, "Lee": 20 ]
-ages["Kim"]
-ages
+ages = [:]
+

@@ -14,5 +14,18 @@ for name in names {
         cost += 20
     }
 }
-print("Total cost: \(cost) dollars")
+//print("Total cost: \(cost) dollars")
+
+let integers = [ 9, 10, 11 ]
+for integerToDescribe in integers {
+    var description = "The number \(integerToDescribe) is"
+    switch integerToDescribe {
+    case 2, 3, 5, 7, 11, 13, 17, 19:
+        description += " a prime number, and also"
+        fallthrough
+    default:
+        description += " an integer."
+    }
+    print(description)
+}
 

@@ -45,4 +45,5 @@ type(of: xy2)
 let xy3 = [ Double(x), Double(y) ]
 type(of: xy3)
 
-
+let what:[CustomStringConvertible] = [ "Swift", 5.0 ]
+what

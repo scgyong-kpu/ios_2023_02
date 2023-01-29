@@ -1,12 +1,18 @@
 import Foundation
 
-let ages = [ 13, 18, 34, 29 ]
+let ages = [ "Kelly": 13, "Mac": 18, "John": 34, "Kim": 29 ]
 var cost = 0
-for age in ages {
-    if age > 19 {
-        cost += 20
+let names = [ "Kelly", "Grace", "Kim" ]
+for name in names {
+    let age = ages[name]
+    if age != nil {
+        if age! > 19 {
+            cost += 20
+        } else {
+            cost += 15
+        }
     } else {
-        cost += 15
+        cost += 20
     }
 }
 print("Total cost: \(cost) dollars")

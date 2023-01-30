@@ -25,6 +25,7 @@ struct ContentView: View {
 
                 Spacer()
                 Text("\(page) / \(count)")
+                    .font(.largeTitle)
                 Spacer()
                 Button {
                     if page < count {

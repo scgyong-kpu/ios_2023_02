@@ -34,3 +34,37 @@
   * `Spacer`
   * `resizable`, `disabled`
   * Refactor: `TopButton`
+* SF Symbols
+  * `folder.badge.plus`
+  * `trash.circle`
+  * `pencil.circle.fill`
+  * `folder.circle`
+  * `paperplane.circle.fill`
+  * `xmark.bin.fill`
+  * `arrow.left`, `arrow.right`
+  * `arrow.left.circle`, `arrow.right.circle`
+
+### 1/31(화)
+* ImageSwitcher
+* Controls/Modifiers
+  * `LinearGradiant`
+  * `aspectRatio(contentMode: .fit)`, `background`, `ignoresSafeArea`, `shadow`
+
+* Swift Tour 03
+* MoreControls
+  * `rotationEffect`, `Angle.degrees()`
+  * `animation`, `easeIn`
+* `Nations.swift` generation
+* Flags
+  * `List`, `ForEach`, `Section`
+  * `listStyle`, `SidebarListStyle`
+  * Extract View: `CountryView` 
+    * `fontWeight`
+  * `onAppear`
+  * `NavigationView`, `NavigationBar`, `NavigationLink`
+    * `navigationBarTitle`, `navigationViewStyle`, `DisclosureIndicator`, `DetailDisclusureIndicator`
+  * `UIColor` extension: lighter, darker
+  * `CountryDetailView` and Previews
+* SF Symbols
+  * `pencil.tip.crop.circle.badge.arrow.forward`
+  * `goforward.plus`

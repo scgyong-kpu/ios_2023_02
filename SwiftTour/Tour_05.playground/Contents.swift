@@ -39,3 +39,5 @@ el.legCount
 el.simpleDesc()
 let baby_el = el.giveBirth()
 baby_el.simpleDesc()
+let grand_el = baby_el.giveBirth()
+grand_el.simpleDesc()

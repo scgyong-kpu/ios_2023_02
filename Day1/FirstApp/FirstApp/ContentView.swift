@@ -14,6 +14,14 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, tukorea!")
+                .font(.largeTitle)
+                .foregroundColor(.purple)
+            HStack {
+                Image(systemName: "folder.badge.plus")
+                    .font(.largeTitle)
+                    .foregroundColor(.red)
+                Text("Wow")
+            }
         }
         .padding()
     }

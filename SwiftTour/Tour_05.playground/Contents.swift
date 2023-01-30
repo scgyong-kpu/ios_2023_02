@@ -81,7 +81,7 @@ for m in mammals {
     child.simpleDesc()
 }
 
-print("\n\n\n\n")
+//print("\n\n\n\n")
 
 // Bad example
 for m in mammals {
@@ -94,5 +94,31 @@ for m in mammals {
     }
 }
 
+//print("\n\n\n\n")
 
-print("\n\n\n\n")
+class Monster: Mammal {
+    var kneeCount: Int {
+        get {
+            return legCount
+        }
+    }
+    var toeCount: Int {
+        get { legCount * 4 }
+        set(count) { legCount = count / 4 }
+    }
+    var eyeCount = 0 {
+        didSet {
+            legCount = 2 * eyeCount
+        }
+    }
+}
+
+let m = Monster(name: "Goo")
+(knee: m.kneeCount, toe: m.toeCount)
+m.toeCount = 20
+m.kneeCount
+
+m.eyeCount = 123
+m.legCount
+
+

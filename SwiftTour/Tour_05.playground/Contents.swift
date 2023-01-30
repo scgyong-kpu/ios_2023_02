@@ -119,4 +119,14 @@ m.kneeCount
 m.eyeCount = 123
 m.legCount
 
+let anim_dict = [
+    "jd": Dog(name: "Jindol"),
+    "plat": Platypus(name: "Platipus"),
+]
 
+let cat = anim_dict["cat"]
+let catdesc = cat?.simpleDesc()
+type(of: catdesc)
+
+let catdesc2 = cat?.simpleDesc() ?? "No Cat"
+type(of: catdesc2)

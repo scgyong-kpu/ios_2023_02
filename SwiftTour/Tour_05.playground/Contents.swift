@@ -54,4 +54,21 @@ let puppy = jd.giveBirth()
 puppy.name
 type(of: puppy)
 (puppy as! Dog).bark()
-puppy.bark()
+//puppy.bark()
+
+class Platypus: Mammal {
+    override func giveBirth() -> Mammal {
+        print("Laying an egg")
+        return baby()
+    }
+    override func baby() -> Mammal {
+        Platypus(name: "Baby \(name) from an egg")
+    }
+}
+
+let pl_parent = Platypus(name: "Plat")
+pl_parent.name
+let pl_baby = pl_parent.giveBirth()
+pl_baby.name
+
+print("\n\n\n\n")

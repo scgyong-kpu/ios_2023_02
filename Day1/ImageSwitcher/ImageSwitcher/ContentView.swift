@@ -13,22 +13,17 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                TopButton(enables: page > 1)
+                TopButton(imageName: "arrow.left.circle", enables: page > 1) {
+                    page -= 1
+                }
 
                 Spacer()
                 Text("\(page) / \(count)")
                     .font(.largeTitle)
                 Spacer()
-                Button {
-                    if page < count {
-                        page += 1
-                    }
-                } label: {
-                    Image(systemName: "arrow.right.circle")
-                        .resizable()
-                        .frame(width: 64, height: 64)
+                TopButton(imageName: "arrow.right.circle", enables: page < count) {
+                    page += 1
                 }
-                .disabled(page == count)
             }
             Spacer()
             Image("cat_\(page)")
@@ -47,19 +42,16 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct TopButton: View {
+    var imageName: String
     var enables: Bool
-    init(enables: Bool) {
-        self.enables = enables
-    }
+    var action: ()->Void
     var body: some View {
         Button {
-//            if page > 1 {
-//                page -= 1
-//            }
+            action()
         } label: {
-            Image(systemName: "arrow.left.circle")
+            Image(systemName: imageName)
                 .resizable()
-                .frame(width: 64, height: 64)
+                .frame(width: 80, height: 80)
             
         }
         .disabled(!enables)
@@ -69,8 +61,8 @@ struct TopButton: View {
 struct TopButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TopButton(enables: true)
-            TopButton(enables: false)
+            TopButton(imageName: "arrow.left", enables: true, action: {})
+            TopButton(imageName: "arrow.right", enables: false, action: {})
         }
     }
 }

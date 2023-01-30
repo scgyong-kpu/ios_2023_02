@@ -39,7 +39,12 @@ struct ContentView: View {
                 .foregroundColor(.green)
             Slider(value: $transparency)
             Text("\(transparency)")
-            TextField("Your name", text: $name)
+            ZStack {
+                Rectangle()
+                    .stroke(lineWidth: 8)
+                TextField("Your name", text: $name)
+            }
+            .frame(width: 200)
             Text("Your name is \(name)")
             Button {
                 print("Pressed") // MVVM // MVC

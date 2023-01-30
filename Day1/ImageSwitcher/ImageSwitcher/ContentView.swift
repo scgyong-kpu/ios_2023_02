@@ -13,17 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HStack {
-                Button {
-                    if page > 1 {
-                        page -= 1
-                    }
-                } label: {
-                    Image(systemName: "arrow.left.circle")
-                        .resizable()
-                        .frame(width: 64, height: 64)
-                    
-                }
-                .disabled(page == 1)
+                TopButton(enables: page > 1)
 
                 Spacer()
                 Text("\(page) / \(count)")
@@ -53,5 +43,34 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct TopButton: View {
+    var enables: Bool
+    init(enables: Bool) {
+        self.enables = enables
+    }
+    var body: some View {
+        Button {
+//            if page > 1 {
+//                page -= 1
+//            }
+        } label: {
+            Image(systemName: "arrow.left.circle")
+                .resizable()
+                .frame(width: 64, height: 64)
+            
+        }
+        .disabled(!enables)
+    }
+}
+
+struct TopButton_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            TopButton(enables: true)
+            TopButton(enables: false)
+        }
     }
 }

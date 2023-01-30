@@ -75,3 +75,19 @@ for count in counts {
     print("\(prefix) stars")
 }
 
+let ages2 = [ "Kelly": 13, "Mac": 18, "John": 34, "Kim": 29 ]
+for (name, age) in ages2 {
+    let msg = "\(name) is \(age)"
+}
+
+var sum = 0
+for num in 1 ... 100 {
+    sum += num
+}
+
+do {
+    try canThrowAnError()
+    print("Nothing has been thrown")
+} catch {
+    print("Some Error was thrown")
+}

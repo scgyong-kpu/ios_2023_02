@@ -21,7 +21,9 @@ struct ContentView: View {
                     Image(systemName: "arrow.left.circle")
                         .resizable()
                         .frame(width: 64, height: 64)
+                    
                 }
+                .disabled(page == 1)
 
                 Spacer()
                 Text("\(page) / \(count)")
@@ -36,6 +38,7 @@ struct ContentView: View {
                         .resizable()
                         .frame(width: 64, height: 64)
                 }
+                .disabled(page == count)
             }
             Spacer()
             Image("cat_\(page)")

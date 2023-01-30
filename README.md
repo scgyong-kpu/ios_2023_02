@@ -13,3 +13,24 @@
 * MemoryGame
 * AlbumList
 * Map
+
+## 일정
+
+### 1/30(월)
+* Swift Tour 01
+* Storyboard App
+* Simple SwiftUI App
+  * Preview, Run, Debug,
+  * `Text`, `Image`, `Circle`, `Button`, `Capsule`, `Slider`, `TextField`, `Rectangle`, `RoundedRectangle`, 
+  * `HStack`, `VStack`, `ZStack`,
+  * `ViewModifier`
+    * `font`, `foregroundColor`, `background`, `frame`, `padding`, 
+  * SF Symbols
+  * Button actions
+  * `@State` property wrapper, binding
+  * Refactor: Extract Subview
+* Swift Tour 02
+* ImageSwitcher
+  * `Spacer`
+  * `resizable`, `disabled`
+  * Refactor: `TopButton`

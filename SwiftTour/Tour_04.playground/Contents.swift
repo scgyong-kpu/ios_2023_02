@@ -18,3 +18,11 @@ func average(numbers: Int...) -> Double {
 let avg1 = average(numbers: 10, 20, 23)
 let avg2 = average(numbers: 1, 2, 3, 4, 5, 6, 10)
 
+// C-1 tuple
+
+let pair = (12, 13.0)
+pair
+pair.0
+pair.1
+pair
+

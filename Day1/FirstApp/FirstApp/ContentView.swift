@@ -19,7 +19,12 @@ struct ContentView: View {
             Button {
                 print("Pressed")
             } label: {
-                Text("This is a button")
+                ZStack {
+                    Capsule()
+                        .stroke(lineWidth: 5)
+                    Text("This is a button")
+                }
+                .frame(width:200, height: 60)
             }
 
             Text("Hello, tukorea!")

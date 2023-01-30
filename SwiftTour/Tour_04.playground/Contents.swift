@@ -26,3 +26,11 @@ pair.0
 pair.1
 pair
 
+// C-2 tuple: named member
+
+let point = (x: 10, y: 15)
+point.0
+point.1
+point.x
+point.y
+point

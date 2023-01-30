@@ -8,21 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var page = 1
+    let count = 5
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "arrow.left.circle")
-                    .resizable()
-                    .frame(width: 64, height: 64)
+                Button {
+                    if page > 1 {
+                        page -= 1
+                    }
+                } label: {
+                    Image(systemName: "arrow.left.circle")
+                        .resizable()
+                        .frame(width: 64, height: 64)
+                }
+
                 Spacer()
-                Text("1 / 5")
+                Text("\(page) / \(count)")
                 Spacer()
-                Image(systemName: "arrow.right.circle")
-                    .resizable()
-                    .frame(width: 64, height: 64)
+                Button {
+                    if page < count {
+                        page += 1
+                    }
+                } label: {
+                    Image(systemName: "arrow.right.circle")
+                        .resizable()
+                        .frame(width: 64, height: 64)
+                }
             }
             Spacer()
-            Image("cat_1")
+            Image("cat_\(page)")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Spacer()

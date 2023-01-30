@@ -69,3 +69,26 @@ let cav1 = calculate(numbers: 10, 20, 23)
 let cav2 = calculate(numbers: 1, 3, 5, 7, 9)
 cav1
 
+// F. func for func argument
+
+func points(number: Int, bonus: (Int)->Bool) -> Int {
+    var pt = number * 10
+    if bonus(number) {
+        pt += 1
+    }
+    return pt
+}
+
+func odd(num: Int) -> Bool {
+    return num % 2 != 0
+}
+
+func negative(num: Int) -> Bool {
+    return num < 0
+}
+
+let pt1 = points(number: 5, bonus: odd)
+let pt2 = points(number: 6, bonus: odd)
+let pt3 = points(number: 7, bonus: negative)
+let pt4 = points(number: -1, bonus: negative)
+

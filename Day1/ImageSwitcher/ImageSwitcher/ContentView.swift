@@ -10,15 +10,21 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            HStack {
+                Image(systemName: "arrow.left.circle")
+                    .resizable()
+                    .frame(width: 64, height: 64)
+                Spacer()
+                Text("1 / 5")
+                Spacer()
+                Image(systemName: "arrow.right.circle")
+                    .resizable()
+                    .frame(width: 64, height: 64)
+            }
             Spacer()
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Spacer()
-            Text("Hello, world!")
-            Spacer()
-            Image("cat1")
+            Image("cat_1")
                 .resizable()
+                .aspectRatio(contentMode: .fit)
             Spacer()
         }
         .padding()

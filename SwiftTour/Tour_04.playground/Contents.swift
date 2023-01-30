@@ -92,3 +92,24 @@ let pt2 = points(number: 6, bonus: odd)
 let pt3 = points(number: 7, bonus: negative)
 let pt4 = points(number: -1, bonus: negative)
 
+// G. func returning func
+
+func incrementor(number: Int) -> (()->Int) {
+    var value = 0
+    func increase() -> Int {
+        value += number
+        return value
+    }
+    return increase
+}
+
+let inc3 = incrementor(number: 3)
+inc3()
+inc3()
+
+let inc7 = incrementor(number: 7)
+inc7()
+inc7()
+
+inc3()
+inc3

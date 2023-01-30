@@ -2,11 +2,15 @@ import Foundation
 
 class Animal {
     var legCount = 0
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
     func simpleDesc() -> String {
-        "This animal has \(legCount) legs"
+        "This \(name) has \(legCount) legs"
     }
 }
 
-let monster = Animal()
-monster.legCount = 10
-monster.simpleDesc()
+let lark = Animal(name: "Lark")
+lark.legCount = 2
+lark.simpleDesc()

@@ -71,4 +71,28 @@ pl_parent.name
 let pl_baby = pl_parent.giveBirth()
 pl_baby.name
 
+let mammals = [
+    Mammal(name: "Normal one"),
+    Dog(name: "Jindol"),
+    Platypus(name: "Plat"),
+]
+for m in mammals {
+    let child = m.giveBirth()
+    child.simpleDesc()
+}
+
+print("\n\n\n\n")
+
+// Bad example
+for m in mammals {
+    if m is Dog {
+        print("Dog: \(m.simpleDesc())")
+    } else if m is Platypus {
+        print("Platipus: \(m.simpleDesc())")
+    } else {
+        print("Just a mammal: \(m.simpleDesc())")
+    }
+}
+
+
 print("\n\n\n\n")

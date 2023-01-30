@@ -27,6 +27,7 @@ struct ContentView: View {
     @State var count = 0
     @State var imgIndex = 0
     @State var transparency = 0.0
+    @State var name = ""
     var body: some View {
         VStack {
             Image(systemName: ContentView.names[imgIndex])
@@ -38,6 +39,8 @@ struct ContentView: View {
                 .foregroundColor(.green)
             Slider(value: $transparency)
             Text("\(transparency)")
+            TextField("Your name", text: $name)
+            Text("Your name is \(name)")
             Button {
                 print("Pressed") // MVVM // MVC
                 count += 1

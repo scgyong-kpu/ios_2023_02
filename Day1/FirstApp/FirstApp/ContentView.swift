@@ -18,6 +18,7 @@ struct ImageModifier: ViewModifier {
 }
 
 struct ContentView: View {
+    @State var count = 0
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -28,7 +29,8 @@ struct ContentView: View {
                 .frame(width: 100)
                 .foregroundColor(.green)
             Button {
-                print("Pressed")
+                print("Pressed") // MVVM // MVC
+                count += 1
             } label: {
                 ZStack {
                     Capsule()
@@ -38,7 +40,7 @@ struct ContentView: View {
                 .frame(width:200, height: 60)
             }
 
-            Text("Hello, tukorea!")
+            Text("count = \(count)")
                 .font(.largeTitle)
                 .foregroundColor(.purple)
             HStack {

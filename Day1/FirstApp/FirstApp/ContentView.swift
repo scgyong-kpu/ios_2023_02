@@ -40,9 +40,10 @@ struct ContentView: View {
             Slider(value: $transparency)
             Text("\(transparency)")
             ZStack {
-                Rectangle()
+                RoundedRectangle(cornerRadius: 10)
                     .stroke(lineWidth: 8)
                 TextField("Your name", text: $name)
+                    .multilineTextAlignment(.center)
             }
             .frame(width: 200)
             Text("Your name is \(name)")

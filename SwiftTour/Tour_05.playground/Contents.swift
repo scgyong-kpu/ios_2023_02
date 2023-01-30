@@ -15,8 +15,6 @@ let lark = Animal(name: "Lark")
 lark.legCount = 2
 lark.simpleDesc()
 
-// C. Inheritance
-
 class Mammal: Animal {
     override init(name: String) {
         super.init(name: name)
@@ -41,3 +39,19 @@ let baby_el = el.giveBirth()
 baby_el.simpleDesc()
 let grand_el = baby_el.giveBirth()
 grand_el.simpleDesc()
+
+class Dog: Mammal {
+    override func baby() -> Mammal {
+        Dog(name: "\(name)'s Puppy")
+    }
+    func bark() -> String {
+        "Bark!"
+    }
+}
+
+let jd = Dog(name: "Jindol")
+let puppy = jd.giveBirth()
+puppy.name
+type(of: puppy)
+(puppy as! Dog).bark()
+puppy.bark()

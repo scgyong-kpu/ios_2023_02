@@ -48,3 +48,24 @@ func sum_average(numbers: Int...) -> (sum: Int, avg: Double) {
 let sa1 = sum_average(numbers: 10, 20, 23)
 let sa2 = sum_average(numbers: 1, 2, 3, 4, 5, 6, 10)
 sa1
+
+func calculate(numbers: Int...) -> (sum: Int, avg: Double) {
+    var sum = 0
+    func increaseSumIf(number: Int, devidedBy devider: Int) {
+        if number % devider == 0 {
+            sum += 1
+        }
+    }
+    for num in numbers {
+        sum += num
+        increaseSumIf(number: num, devidedBy: 2)
+        increaseSumIf(number: num, devidedBy: 5)
+    }
+    let avg = Double(sum) / Double(numbers.count)
+    return (sum: sum, avg: avg)
+}
+
+let cav1 = calculate(numbers: 10, 20, 23)
+let cav2 = calculate(numbers: 1, 3, 5, 7, 9)
+cav1
+

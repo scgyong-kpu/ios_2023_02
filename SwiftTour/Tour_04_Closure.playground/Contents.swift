@@ -26,3 +26,19 @@ mod3
 let mod7 = points(number: 9) { $0 % 7 == 0 }
 mod7
 
+var numbers = [ 1, 12, 32, 2, 4, 43, 3 ]
+numbers.sort(by: { (n1: Int, n2: Int) -> Bool in
+    return n1 < n2
+})
+numbers
+
+numbers.sort(by: {n1, n2 in n1 > n2})
+numbers
+
+numbers.sort { $0 < $1 }
+numbers
+
+numbers.sort(by: >)
+
+numbers.sort()
+

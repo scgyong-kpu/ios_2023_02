@@ -18,10 +18,17 @@ struct ImageModifier: ViewModifier {
 }
 
 struct ContentView: View {
+    static let names = [
+        "pencil.circle.fill",
+        "folder.circle",
+        "paperplane.circle.fill",
+        "xmark.bin.fill",
+    ]
     @State var count = 0
+    @State var imgIndex = 0
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: ContentView.names[imgIndex])
                 .modifier(ImageModifier())
             Image(systemName: "trash.circle")
                 .modifier(ImageModifier())
@@ -31,6 +38,7 @@ struct ContentView: View {
             Button {
                 print("Pressed") // MVVM // MVC
                 count += 1
+                imgIndex = (imgIndex + 1) % ContentView.names.count
             } label: {
                 ZStack {
                     Capsule()

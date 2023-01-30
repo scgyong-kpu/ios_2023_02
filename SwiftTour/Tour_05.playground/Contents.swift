@@ -98,9 +98,7 @@ for m in mammals {
 
 class Monster: Mammal {
     var kneeCount: Int {
-        get {
-            return legCount
-        }
+        legCount
     }
     var toeCount: Int {
         get { legCount * 4 }

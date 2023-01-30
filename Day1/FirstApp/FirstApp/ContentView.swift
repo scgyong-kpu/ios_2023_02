@@ -13,6 +13,15 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
+            Circle()
+                .frame(width: 100)
+                .foregroundColor(.green)
+            Button {
+                print("Pressed")
+            } label: {
+                Text("This is a button")
+            }
+
             Text("Hello, tukorea!")
                 .font(.largeTitle)
                 .foregroundColor(.purple)
@@ -22,6 +31,10 @@ struct ContentView: View {
                     .foregroundColor(.red)
                 Text("Wow")
             }
+            .padding()
+            .background(Color.yellow)
+            .padding()
+            .background(Color.orange)
         }
         .padding()
     }

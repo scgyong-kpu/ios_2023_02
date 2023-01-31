@@ -91,3 +91,33 @@ class CPerson {
     init() { age = 0 }
 }
 let c1 = CPerson()
+
+import CoreGraphics
+
+protocol Annotation {
+    var location: CGPoint { get }
+    var title: String { get }
+    func show()
+}
+
+struct City: Annotation {
+    var location = CGPoint(x: 0, y: 0)
+    var title: String
+    func show() {
+        print("I am a city titled \(title)")
+    }
+}
+
+enum Poi: Annotation {
+    case seoul, busan, siheung
+    var location: CGPoint { CGPoint.zero }
+    var title: String { "\(self)" }
+    func show() {
+        print("I am an enum (\(title))")
+    }
+}
+
+let gimpo = City(title: "Gimpo")
+let pois: [Annotation] = [ gimpo, Poi.seoul ]
+
+for a in pois { a.show() }

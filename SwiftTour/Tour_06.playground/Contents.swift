@@ -21,3 +21,9 @@ let c_2 = Rank.two
 let str_a = "Card a = \(c_a), \(c_a.string())"
 let str_2 = "Card 2 = \(c_2), \(c_2.string())"
 
+var the_card = Rank.six
+the_card.string()
+the_card = .five
+the_card.string()
+the_card = .jack
+the_card.string()

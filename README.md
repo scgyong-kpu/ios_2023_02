@@ -79,3 +79,36 @@
 * SF Symbols
   * `pencil.tip.crop.circle.badge.arrow.forward`
   * `goforward.plus`
+
+## 2/1(수)
+* Swift Tour 05
+  * Class
+    * `class`
+    * Inheritance
+    * Pylymorphism: Good vs Bad practices
+  * Property
+    * Stored vs Computed
+    * Property Observers: `willSet`, `didSet`
+  * Optional Chain
+* GestureSample
+  * Gestures
+    * `TapGesture`, `RotationGesture`, `LongPressGesture`, `DragGesture`, `MagnificationGesture`
+    * Discrete vs Continuous
+  * `spinning` forever animation
+  * Drawing
+    * Path
+    * `StrokeStyle`: width, cap, join
+  * Gradients
+    * `LinearGradient`, `RadialGradient`
+* Swift Tour 06
+  * Enumeration
+    * Basic
+    * RawType
+    * Function
+    * Value Association
+  * Struct
+    * Reference Type vs Value Type
+  * Protocol
+  * Extension
+    * `mutating` func
+  * Generics

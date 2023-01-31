@@ -77,4 +77,17 @@ let s_person = StructPerson(name: "Kim", age: 10)
 var copy_s = s_person
 copy_s.name = "Lee"
 
-print((original: s_person.name, copy: copy_s.name))
+//print((original: s_person.name, copy: copy_s.name))
+
+struct SPerson {
+    let name: String
+    let age: Int
+}
+let p1 = SPerson(name: "Kim", age: 20)
+
+class CPerson {
+    let name: String = ""
+    let age: Int
+    init() { age = 0 }
+}
+let c1 = CPerson()

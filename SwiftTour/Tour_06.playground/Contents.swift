@@ -117,7 +117,10 @@ enum Poi: Annotation {
     }
 }
 
-let gimpo = City(title: "Gimpo")
+var gimpo = City(title: "Gimpo")
 let pois: [Annotation] = [ gimpo, Poi.seoul ]
 
 for a in pois { a.show() }
+
+gimpo.title = "nowhere"
+pois[0].title

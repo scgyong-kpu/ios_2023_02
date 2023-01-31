@@ -11,8 +11,8 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(Region.all, id: \.title) { region in
-                Section(Region.all[4].title) {
-                    ForEach(Region.all[4].countries, id: \.name) { country in
+                Section(region.title) {
+                    ForEach(region.countries, id: \.name) { country in
                         HStack {
                             Image(country.file)
                             Text(country.name)

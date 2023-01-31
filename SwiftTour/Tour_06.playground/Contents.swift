@@ -187,3 +187,20 @@ let arr_gen = makeArray(item: 10, times: 3)
 let first_element_gen = arr_gen[0]
 first_element_any
 
+func swapGenerics<T>( a: inout T, b: inout T) {
+    let t = a
+    a = b
+    b = t
+}
+
+var a1 = 10, a2 = 20
+swapGenerics(a: &a1, b: &a2)
+(a1:a1, a2:a2)
+
+func swapAny(a: inout Any, b: inout Any) {
+    let t = a
+    a = b
+    b = t
+}
+
+//swapAny(a: &a1, b: &a2)

@@ -49,3 +49,32 @@ desc(sr: success)
 desc(sr: failure)
 desc(sr: .result(name: "Lee", city: "시흥"))
 
+class ClassPerson {
+    var name: String
+    var age: Int
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
+
+let c_person = ClassPerson(name: "Kim", age: 10)
+var copy_c = c_person
+copy_c.name = "Lee"
+
+//print((original: c_person.name, copy: copy_c.name))
+
+struct StructPerson {
+    var name: String
+    var age: Int
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
+
+let s_person = StructPerson(name: "Kim", age: 10)
+var copy_s = s_person
+copy_s.name = "Lee"
+
+print((original: s_person.name, copy: copy_s.name))

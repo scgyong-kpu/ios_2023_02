@@ -146,14 +146,14 @@ extension String: Annotation {
 
 protocol Increasing {
     func increasedValue(amount: Int) -> Int
-    func increase(amount: Int)
+    mutating func increase(amount: Int)
 }
 
 extension Int: Increasing {
     func increasedValue(amount: Int) -> Int {
         return self + amount
     }
-    func increase(amount: Int) {
+    mutating func increase(amount: Int) {
         self += amount
     }
 }

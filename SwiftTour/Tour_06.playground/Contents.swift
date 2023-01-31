@@ -172,4 +172,18 @@ func makeArray<T>(item: T, times: Int) -> [T] {
 makeArray(item: "K", times: 4)
 makeArray(item: 10, times: 3)
 
+func makeAnyArray(item: Any, times: Int) -> [Any] {
+    var items = [Any]()
+    for _ in 0 ..< times {
+        items.append(item)
+    }
+    return items
+}
+makeAnyArray(item: "K", times: 4)
+let arr_any = makeAnyArray(item: 10, times: 3)
+let first_element_any = arr_any[0]
+
+let arr_gen = makeArray(item: 10, times: 3)
+let first_element_gen = arr_gen[0]
+first_element_any
 

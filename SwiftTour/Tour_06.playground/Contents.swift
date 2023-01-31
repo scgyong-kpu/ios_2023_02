@@ -124,3 +124,23 @@ for a in pois { a.show() }
 
 gimpo.title = "nowhere"
 pois[0].title
+
+extension String {
+    func addPrefix(prefix: String) -> String {
+        prefix + self
+    }
+}
+
+let s1 = "Nice"
+s1.addPrefix(prefix: "Very ")
+"cookies".addPrefix(prefix: "a lot of ")
+
+extension String: Annotation {
+    var title: String { self }
+    var location: CGPoint { CGPoint.zero }
+    func show() {
+        print("Show \(self)")
+    }
+}
+"String".show()
+

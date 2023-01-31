@@ -36,3 +36,16 @@ enum ServerResponse {
 let success = ServerResponse.result(name: "Kim", city: "Seoul")
 let failure = ServerResponse.error(msg: "Invalid Name")
 
+func desc(sr: ServerResponse) -> String {
+    switch sr {
+    case let .result(name, city):
+        return "Name: \(name), City: \(city)"
+    case let .error(msg):
+        return "Error: \(msg)"
+    }
+}
+
+desc(sr: success)
+desc(sr: failure)
+desc(sr: .result(name: "Lee", city: "시흥"))
+

@@ -144,3 +144,20 @@ extension String: Annotation {
 }
 "String".show()
 
+protocol Increasing {
+    func increasedValue(amount: Int) -> Int
+    func increase(amount: Int)
+}
+
+extension Int: Increasing {
+    func increasedValue(amount: Int) -> Int {
+        return self + amount
+    }
+    func increase(amount: Int) {
+        self += amount
+    }
+}
+
+var value = 3
+value.increasedValue(amount: 6)
+value.increase(amount: 4)

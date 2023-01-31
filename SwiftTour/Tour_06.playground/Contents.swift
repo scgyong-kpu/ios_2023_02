@@ -27,3 +27,12 @@ the_card = .five
 the_card.string()
 the_card = .jack
 the_card.string()
+
+enum ServerResponse {
+    case result(name: String, city: String)
+    case error(msg: String)
+}
+
+let success = ServerResponse.result(name: "Kim", city: "Seoul")
+let failure = ServerResponse.error(msg: "Invalid Name")
+

@@ -13,19 +13,7 @@ struct ContentView: View {
             ForEach(Region.all, id: \.title) { region in
                 Section(region.title) {
                     ForEach(region.countries, id: \.name) { country in
-                        HStack {
-                            Image(country.file)
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                            VStack {
-                                Text(country.name)
-                                    .font(.title)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                Text("\(country.name.count) million people")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .foregroundColor(.gray)
-                            }
-                        }
+                        CountryView(country: country)
                     }
                 }
             }
@@ -36,5 +24,24 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct CountryView: View {
+    let country: Country
+    var body: some View {
+        HStack {
+            Image(country.file)
+                .resizable()
+                .frame(width: 60, height: 60)
+            VStack {
+                Text(country.name)
+                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text("\(country.name.count) million people")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.gray)
+            }
+        }
     }
 }

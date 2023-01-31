@@ -158,6 +158,6 @@ extension Int: Increasing {
     }
 }
 
-let value = 3
+var value = 3
 value.increasedValue(amount: 6)
 value.increase(amount: 4)

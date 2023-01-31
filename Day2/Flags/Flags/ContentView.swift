@@ -10,10 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         List {
-            ForEach(Region.all[4].countries, id: \.name) { country in
-                HStack {
-                    Image(country.file)
-                    Text(country.name)
+            Section(Region.all[4].title) {
+                ForEach(Region.all[4].countries, id: \.name) { country in
+                    HStack {
+                        Image(country.file)
+                        Text(country.name)
+                    }
                 }
             }
         }

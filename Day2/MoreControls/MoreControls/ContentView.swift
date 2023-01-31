@@ -16,48 +16,59 @@ struct ContentView: View {
     @State var rotationDegrees = 0.0
     @State var large = false
     var body: some View {
-        VStack {
-            List {
-                Section("Section 1") {
-                    ForEach(names, id: \.self) { row in
-                        HStack {
-                            Image(systemName: "pencil.tip.crop.circle.badge.arrow.forward")
-                            Text("Hello \(row)")
+        NavigationView {
+            VStack {
+                List {
+                    Section("Section 1") {
+                        ForEach(names, id: \.self) { row in
+                            NavigationLink {
+                                Text("Link Destination: Hello \(row)")
+                                    .font(.largeTitle)
+                                    .navigationTitle(row)
+                                    .navigationBarTitleDisplayMode(.inline)
+                            } label: {
+                                HStack {
+                                    Image(systemName: "pencil.tip.crop.circle.badge.arrow.forward")
+                                    Text("Hello \(row)")
+                                }
+                            }
+
                         }
                     }
+                    Section("Second Section") {
+                        Text("Hello")
+                        Text("World")
+                        Text("Hello")
+                        Text("World")
+                        Text("Hello")
+                        Text("World")
+                    }
                 }
-                Section("Second Section") {
-                    Text("Hello")
-                    Text("World")
-                    Text("Hello")
-                    Text("World")
-                    Text("Hello")
-                    Text("World")
+                .listStyle(.plain)
+                Image(systemName: "arrow.right.circle")
+                    .resizable()
+                    .aspectRatio(1.0, contentMode: .fit)
+    //                .frame(width: large ? 200 : 100, height: 200)
+                    .scaleEffect(large ? 1.0 : 0.5)
+                    .animation(.linear(duration: 0.3), value: large ? 1.0 : 0.5)
+                    .foregroundColor(.yellow)
+                    .rotationEffect(.degrees(rotationDegrees * 360))
+                    .shadow(color:.red, radius: 10, x: 10, y: 10)
+                Slider(value: $rotationDegrees)
+                    .padding()
+                Toggle(isOn: $large) {
+                    Text("Shows Large Circle")
                 }
-            }
-            .listStyle(.plain)
-            Image(systemName: "arrow.right.circle")
-                .resizable()
-                .aspectRatio(1.0, contentMode: .fit)
-//                .frame(width: large ? 200 : 100, height: 200)
-                .scaleEffect(large ? 1.0 : 0.5)
-                .animation(.linear(duration: 0.3), value: large ? 1.0 : 0.5)
-                .foregroundColor(.yellow)
-                .rotationEffect(.degrees(rotationDegrees * 360))
-                .shadow(color:.red, radius: 10, x: 10, y: 10)
-            Slider(value: $rotationDegrees)
                 .padding()
-            Toggle(isOn: $large) {
-                Text("Shows Large Circle")
             }
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(
+                LinearGradient(colors: [
+                    .white, .cyan
+                ], startPoint: .topLeading, endPoint: .bottomTrailing)
+            )
+            .navigationTitle("Main")
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
-            LinearGradient(colors: [
-                .white, .cyan
-            ], startPoint: .topLeading, endPoint: .bottomTrailing)
-        )
     }
 }
 

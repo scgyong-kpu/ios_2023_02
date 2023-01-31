@@ -161,3 +161,15 @@ extension Int: Increasing {
 var value = 3
 value.increasedValue(amount: 6)
 value.increase(amount: 4)
+
+func makeArray<T>(item: T, times: Int) -> [T] {
+    var items = [T]()
+    for _ in 0 ..< times {
+        items.append(item)
+    }
+    return items
+}
+makeArray(item: "K", times: 4)
+makeArray(item: 10, times: 3)
+
+

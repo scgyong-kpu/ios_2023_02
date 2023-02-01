@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+func + (a: CGSize, b: CGSize) -> CGSize {
+    CGSize(width: a.width + b.width, height: a.height + b.height)
+}
+
 struct DragGestureView: View {
     @State var globePos = CGSize.zero
     @State var globeFinal = CGSize.zero
@@ -16,13 +20,14 @@ struct DragGestureView: View {
                 .font(.largeTitle)
                 .scaleEffect(3.0)
                 .foregroundColor(.blue)
-                .offset(globePos)
+                .offset(globeFinal + globePos)
                 .gesture(
                     DragGesture()
                         .onChanged { value in
                             globePos = value.translation
                         }
                         .onEnded { value in
+                            globeFinal = globeFinal + globePos
                             globePos = .zero
                         }
                 )

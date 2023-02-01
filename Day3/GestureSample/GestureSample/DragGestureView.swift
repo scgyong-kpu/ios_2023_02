@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DragGestureView: View {
     @State var globePos = CGSize.zero
+    @State var globeFinal = CGSize.zero
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,6 +21,9 @@ struct DragGestureView: View {
                     DragGesture()
                         .onChanged { value in
                             globePos = value.translation
+                        }
+                        .onEnded { value in
+                            globePos = .zero
                         }
                 )
         }

@@ -16,13 +16,10 @@ struct TapGestureView: View {
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color.yellow)
-            .gesture(
-                TapGesture()
-                    .onEnded {
-                        print("Tap")
-                        count += 1
-                    }
-            )
+            .onTapGesture {
+                print("Tap")
+                count += 1
+            }
     }
 }
 

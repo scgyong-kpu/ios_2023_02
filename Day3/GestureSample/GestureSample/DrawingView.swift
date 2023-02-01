@@ -41,6 +41,14 @@ struct DrawingView: View {
                 .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue]), startPoint: .topLeading, endPoint: .bottom))
             }
             .frame(width: 200, height: 200)
+            Path { path in
+                path.move(to: CGPoint(x: 50, y: 50))
+                path.addLine(to: CGPoint(x: 100, y: 200))
+                path.addLine(to: CGPoint(x: 200, y: 100))
+                path.addLine(to: CGPoint(x: 150, y: 50))
+//                path.closeSubpath()
+            }
+            .stroke(style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
         }
         .navigationTitle("Drawing")
     }

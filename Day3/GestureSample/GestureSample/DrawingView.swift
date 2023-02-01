@@ -23,7 +23,10 @@ struct DrawingView: View {
 //            RoundedRectangle(cornerSize: 20)
 //                .frame(height:50)
             Capsule()
-                .stroke(lineWidth: 10)
+                .stroke(lineWidth: 20)
+                .fill(
+                    RadialGradient(colors: [.yellow, .red], center: .center, startRadius: 0, endRadius: 300)
+                )
                 .frame(height: 50)
                 .padding(.horizontal)
             Circle()

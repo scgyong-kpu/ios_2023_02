@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct TapGestureView: View {
+    @State var count = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, World!, \(count)")
+            .font(.largeTitle)
+            .foregroundColor(Color.blue)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.yellow)
+            .gesture(
+                TapGesture()
+                    .onEnded {
+                        print("Tap")
+                        count += 1
+                    }
+            )
     }
 }
 

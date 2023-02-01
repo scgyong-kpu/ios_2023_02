@@ -31,6 +31,11 @@ struct MainView: View {
                 } label: {
                     Text("Scale")
                 }
+                NavigationLink {
+                    DrawingView()
+                } label: {
+                    Text("Drawing Test")
+                }
             }
             .navigationTitle("Gesture Test Sample")
         }

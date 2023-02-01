@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct DragGestureView: View {
+    @State var globePos = CGSize.zero
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(systemName: "globe")
+                .font(.largeTitle)
+                .scaleEffect(3.0)
+                .foregroundColor(.blue)
+                .offset(globePos)
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            globePos = value.translation
+                        }
+                )
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.yellow)
+        .navigationTitle("Drag Gesture")
     }
 }
 
 struct DragGestureView_Previews: PreviewProvider {
     static var previews: some View {
-        DragGestureView()
+        NavigationView {
+            DragGestureView()
+        }
     }
 }

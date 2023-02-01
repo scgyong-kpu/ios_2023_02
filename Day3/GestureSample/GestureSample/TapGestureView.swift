@@ -31,11 +31,14 @@ struct TapGestureView: View {
                     count += 10
                 }
         }
+        .navigationTitle("Tap and LongPress")
     }
 }
 
 struct TapGestureView_Previews: PreviewProvider {
     static var previews: some View {
-        TapGestureView()
+        NavigationView {
+            TapGestureView()
+        }
     }
 }

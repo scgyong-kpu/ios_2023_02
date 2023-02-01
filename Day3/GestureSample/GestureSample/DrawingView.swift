@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DrawingView: View {
+    @State var angle = Angle.zero
     var body: some View {
         VStack {
             Color.red
@@ -33,6 +34,15 @@ struct DrawingView: View {
                 .frame(width: 100, height: 50)
             Ellipse()
                 .frame(width: 100, height: 50)
+            Image(systemName: "arrow.clockwise.circle")
+                .resizable()
+                .frame(width: 100, height: 100)
+                .foregroundColor(.purple)
+                .rotationEffect(angle)
+                .animation(
+                    .linear(duration: 1.0)
+                    .repeatForever(autoreverses: false),
+                    value: angle)
             GeometryReader { gr in
                 Path { path in
                     let rect = CGRect(origin: .zero, size: gr.size)
@@ -43,7 +53,7 @@ struct DrawingView: View {
                 }
                 .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue]), startPoint: .topLeading, endPoint: .bottom))
             }
-            .frame(width: 200, height: 200)
+            .frame(width: 100, height: 100)
             Path { path in
                 path.move(to: CGPoint(x: 50, y: 50))
                 path.addLine(to: CGPoint(x: 100, y: 200))
@@ -52,6 +62,9 @@ struct DrawingView: View {
 //                path.closeSubpath()
             }
             .stroke(style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
+        }
+        .onAppear {
+            angle = .degrees(360)
         }
         .navigationTitle("Drawing")
     }

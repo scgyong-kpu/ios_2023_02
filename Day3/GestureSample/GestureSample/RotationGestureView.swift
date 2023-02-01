@@ -12,7 +12,7 @@ struct RotationGestureView: View {
     @State var finalAngle = Angle.zero
     var body: some View {
         VStack {
-            Text("Angle = \(String(format: "%.1f", currAngle.degrees))")
+            Text("Angle = \(String(format: "%.1f", (finalAngle + currAngle).degrees))")
                 .font(.headline)
                 .foregroundColor(.blue)
             Spacer()

@@ -17,6 +17,10 @@ struct CardView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .onReceive(timer) { _ in
+                if card.state != .open {
+                    timer.upstream.connect().cancel()
+                    return
+                }
                 frameIndex += 1
                 if frameIndex > 8 {
                     frameIndex = 1
@@ -34,7 +38,13 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            CardView(prefix: "f", card: Card(number: 1))
+            ForEach(1...10, id:\.self) { num in
+                HStack {
+                    CardView(prefix: "f", card: Card(number: num))
+                    CardView(prefix: "f", card: Card(number: num, state: .closed))
+                    CardView(prefix: "f", card: Card(number: num, state: .removed))
+                }
+            }
         }
     }
 }

@@ -14,6 +14,9 @@ struct GameView: View {
     @State var showsRetryAlert = false
     @Environment(\.presentationMode) var present
 
+    let timer = Timer.publish(every: 0.1,
+                              on: .main,
+                              in: .common).autoconnect()
     var body: some View {
         VStack {
             Spacer()
@@ -23,12 +26,11 @@ struct GameView: View {
                 Spacer()
                 Text("Score: \(String(format: "%.1f", gameModel.score))")
                     .font(.headline)
-                    .onReceive(
-                        Timer.publish(every: 0.1,
-                                      on: .main,
-                                      in: .common)
-                        .autoconnect()) { _ in
-                            gameModel.addTimeScore(amount: 0.1)
+                    .onReceive(timer) { _ in
+                        if gameModel.over {
+                            timer.upstream.connect().cancel()
+                        }
+                        gameModel.addTimeScore(amount: 0.1)
                     }
             }
             .padding(.horizontal)
@@ -37,6 +39,9 @@ struct GameView: View {
                 CardView(prefix: prefix, card: gameModel.card(row: row, col:col))
                     .onTapGesture {
                         gameModel.toggle(row: row, col: col)
+                        if gameModel.over {
+                            showsRetryAlert = true
+                        }
                     }
             }
             Spacer()

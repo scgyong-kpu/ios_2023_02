@@ -24,9 +24,15 @@ class GameModel: ObservableObject {
     
     var openCardIndex: Int?
     @Published var score: Double = 0
-    
+
+    private var pairCount = 0
+
     init() {
         start()
+    }
+    
+    var over: Bool {
+        pairCount == 0
     }
     
     func start() {
@@ -36,7 +42,8 @@ class GameModel: ObservableObject {
             cards.append(Card(number: number, state: .closed))
             cards.append(Card(number: number, state: .closed))
         }
-        cards.shuffle()
+//        cards.shuffle()
+        pairCount = max
         openCardIndex = nil
         score = 0.0
     }
@@ -61,6 +68,7 @@ class GameModel: ObservableObject {
                 cards[oci].state = .removed
                 cards[index].state = .removed
                 openCardIndex = nil
+                pairCount -= 1
                 score -= 10.0
                 return
             }

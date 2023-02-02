@@ -23,6 +23,7 @@ class GameModel: ObservableObject {
 //    var cards: [Card] = []
     
     var openCardIndex: Int?
+    var score: Double = 0
     
     init() {
         start()
@@ -36,6 +37,7 @@ class GameModel: ObservableObject {
             cards.append(Card(number: number, state: .closed))
         }
         openCardIndex = nil
+        score = 0.0
     }
     
     func card(row: Int, col: Int) -> Card {
@@ -55,6 +57,7 @@ class GameModel: ObservableObject {
                 cards[oci].state = .removed
                 cards[index].state = .removed
                 openCardIndex = nil
+                score -= 10.0
                 return
             }
             cards[oci].state = .closed
@@ -62,5 +65,7 @@ class GameModel: ObservableObject {
         
         cards[index].state = .open
         openCardIndex = index
+        
+        score += 5.0
     }
 }

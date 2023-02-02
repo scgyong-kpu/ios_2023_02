@@ -13,6 +13,15 @@ struct GameView: View {
     var body: some View {
         VStack {
             Spacer()
+            HStack {
+                Text("Memory Game")
+                    .font(.largeTitle)
+                Spacer()
+                Text("Score: \(String(format: "%.1f", gameModel.score))")
+                    .font(.headline)
+            }
+            .padding(.horizontal)
+            Spacer()
             GridStackView(cols: GameModel.cols, rows: GameModel.rows) { row, col in
                 CardView(prefix: "f", card: gameModel.card(row: row, col:col))
                     .onTapGesture {

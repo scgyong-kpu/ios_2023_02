@@ -42,7 +42,7 @@ class GameModel: ObservableObject {
             cards.append(Card(number: number, state: .closed))
             cards.append(Card(number: number, state: .closed))
         }
-//        cards.shuffle()
+        cards.shuffle()
         pairCount = max
         openCardIndex = nil
         score = 0.0

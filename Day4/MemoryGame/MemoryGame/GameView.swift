@@ -12,6 +12,8 @@ struct GameView: View {
     
     @ObservedObject var gameModel = GameModel()
     @State var showsRetryAlert = false
+    @Environment(\.presentationMode) var present
+
     var body: some View {
         VStack {
             Spacer()
@@ -39,8 +41,21 @@ struct GameView: View {
             }
             Spacer()
             HStack {
+                Spacer()
                 Button {
-//                    gameModel.start()
+                    present.wrappedValue.dismiss()
+                } label: {
+                    Text("Back")
+                        .font(.title)
+                        .padding()
+                        .background(
+                            Capsule()
+                                .stroke(lineWidth: 5)
+                        )
+                        .shadow(color: .gray, radius: 4, x: 3, y: 3)
+                }
+                Spacer()
+                Button {
                     showsRetryAlert = true
                 } label: {
                     Text("Restart")
@@ -52,6 +67,7 @@ struct GameView: View {
                         )
                         .shadow(color: .gray, radius: 4, x: 3, y: 3)
                 }
+                Spacer()
             }
             Spacer()
         }
@@ -71,6 +87,7 @@ struct GameView: View {
                     },
                   secondaryButton: .cancel())
         }
+        .navigationBarHidden(true)
     }
 }
 

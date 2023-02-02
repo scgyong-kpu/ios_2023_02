@@ -19,6 +19,13 @@ struct GameView: View {
                 Spacer()
                 Text("Score: \(String(format: "%.1f", gameModel.score))")
                     .font(.headline)
+                    .onReceive(
+                        Timer.publish(every: 0.1,
+                                      on: .main,
+                                      in: .common)
+                        .autoconnect()) { _ in
+                            gameModel.addTimeScore(amount: 0.1)
+                    }
             }
             .padding(.horizontal)
             Spacer()

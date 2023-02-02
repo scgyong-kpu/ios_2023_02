@@ -23,7 +23,7 @@ class GameModel: ObservableObject {
 //    var cards: [Card] = []
     
     var openCardIndex: Int?
-    var score: Double = 0
+    @Published var score: Double = 0
     
     init() {
         start()
@@ -45,6 +45,9 @@ class GameModel: ObservableObject {
         return cards[index]
     }
     
+    func addTimeScore(amount: Double) {
+        score += amount
+    }
     func toggle(row: Int, col: Int) {
         let index = row * Self.cols + col
         

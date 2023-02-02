@@ -10,16 +10,23 @@ import SwiftUI
 struct CardView: View {
     let prefix: String
     let card: Card
+    @State var frameIndex = 1
     var body: some View {
         Image(filename)
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .onTapGesture {
+                frameIndex += 1
+                if frameIndex > 8 {
+                    frameIndex = 1
+                }
+            }
     }
     var filename: String {
         if card.state == .closed {
             return "\(prefix)_back"
         }
-        return String(format: "%@_%02d_%02d", prefix, card.number, 1)
+        return String(format: "%@_%02d_%02d", prefix, card.number, frameIndex)
     }
 }
 

@@ -55,6 +55,13 @@ struct GameView: View {
             }
             Spacer()
         }
+        .background(
+            LinearGradient(colors: [
+                .white, .blue.opacity(0.5)
+            ],
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+        )
         .alert(isPresented: $showsRetryAlert) {
             Alert(title: Text("Restart"),
                   message: Text("Do you really want to restart the game?"),

@@ -25,11 +25,17 @@ class GameModel: ObservableObject {
     var openCardIndex: Int?
     
     init() {
+        start()
+    }
+    
+    func start() {
+        cards = []
         let max = Self.cols * Self.rows / 2
         for number in 1...max {
             cards.append(Card(number: number, state: .closed))
             cards.append(Card(number: number, state: .closed))
         }
+        openCardIndex = nil
     }
     
     func card(row: Int, col: Int) -> Card {

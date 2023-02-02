@@ -17,6 +17,13 @@ struct GameView: View {
                         gameModel.toggle(row: row, col: col)
                     }
             }
+            HStack {
+                Button {
+                    gameModel.start()
+                } label: {
+                    Text("Restart")
+                }
+            }
         }
     }
 }

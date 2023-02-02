@@ -16,7 +16,7 @@ struct MenuView: View {
                     NavigationLink {
                         GameView(prefix: prefix)
                     } label: {
-                        Text("Game with prefix \(prefix)")
+                        MenuItemView(prefix: prefix)
                     }
                 }
             }
@@ -25,8 +25,16 @@ struct MenuView: View {
     }
 }
 
+struct MenuItemView: View {
+    let prefix: String
+    var body: some View {
+        Text("Game with prefix \(prefix)")
+    }
+}
+
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
     }
 }
+

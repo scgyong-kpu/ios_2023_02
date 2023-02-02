@@ -9,28 +9,24 @@ import SwiftUI
 
 struct CardView: View {
     let prefix: String
-    let number: Int
-    let open: Bool
+    let card: Card
     var body: some View {
         Image(filename)
             .resizable()
             .aspectRatio(contentMode: .fit)
     }
     var filename: String {
-        if !open {
+        if card.state == .closed {
             return "\(prefix)_back"
         }
-        return String(format: "%@_%02d_%02d", prefix, number, 1)
+        return String(format: "%@_%02d_%02d", prefix, card.number, 1)
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            CardView(prefix: "f", number: 1, open: true)
-            CardView(prefix: "f", number: 2, open: true)
-            CardView(prefix: "f", number: 3, open: true)
-            CardView(prefix: "f", number: 4, open: false)
+            CardView(prefix: "f", card: Card(number: 1))
         }
     }
 }

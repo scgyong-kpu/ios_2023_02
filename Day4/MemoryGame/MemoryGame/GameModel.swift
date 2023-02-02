@@ -45,6 +45,12 @@ class GameModel: ObservableObject {
         }
         
         if let oci = openCardIndex {
+            if cards[oci].number == cards[index].number {
+                cards[oci].state = .removed
+                cards[index].state = .removed
+                openCardIndex = nil
+                return
+            }
             cards[oci].state = .closed
         }
         

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GameView: View {
+    let prefix: String
+    
     @ObservedObject var gameModel = GameModel()
     @State var showsRetryAlert = false
     var body: some View {
@@ -30,7 +32,7 @@ struct GameView: View {
             .padding(.horizontal)
             Spacer()
             GridStackView(cols: GameModel.cols, rows: GameModel.rows) { row, col in
-                CardView(prefix: "f", card: gameModel.card(row: row, col:col))
+                CardView(prefix: prefix, card: gameModel.card(row: row, col:col))
                     .onTapGesture {
                         gameModel.toggle(row: row, col: col)
                     }
@@ -67,6 +69,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(prefix: "f")
     }
 }

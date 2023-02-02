@@ -11,13 +11,9 @@ struct MenuView: View {
     let prefixes = [ "f", "t" ]
     var body: some View {
         NavigationView {
-            List {
+            ScrollView(.vertical) {
                 ForEach(prefixes, id: \.self) { prefix in
-                    NavigationLink {
-                        GameView(prefix: prefix)
-                    } label: {
-                        MenuItemView(prefix: prefix)
-                    }
+                    MenuItemView(prefix: prefix)
                 }
             }
             .navigationTitle("Memory Game")
@@ -28,7 +24,26 @@ struct MenuView: View {
 struct MenuItemView: View {
     let prefix: String
     var body: some View {
-        Text("Game with prefix \(prefix)")
+        HStack {
+            Image("\(prefix)_back")
+            Spacer()
+            NavigationLink {
+                GameView(prefix: prefix)
+            } label: {
+                Text("Start Game")
+            }
+        }
+        .frame(height:300)
+        .background(
+            ZStack {
+                Color.blue
+                    .cornerRadius(30)
+                    .padding(20)
+                Image("\(prefix)_bg")
+                    .resizable()
+                    .padding(40)
+            }
+        )
     }
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
     let prefix: String
     let card: Card
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.075, on: .main, in: .common).autoconnect()
     @State var frameIndex = 1
     var body: some View {
         Image(filename)

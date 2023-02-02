@@ -22,10 +22,12 @@ class GameModel: ObservableObject {
     @Published var cards = [Card]()
 //    var cards: [Card] = []
     
+    var openCardIndex: Int?
+    
     init() {
         let max = Self.cols * Self.rows / 2
         for number in 1...max {
-            cards.append(Card(number: number, state: .open))
+            cards.append(Card(number: number, state: .closed))
             cards.append(Card(number: number, state: .closed))
         }
     }
@@ -37,7 +39,16 @@ class GameModel: ObservableObject {
     
     func toggle(row: Int, col: Int) {
         let index = row * Self.cols + col
-        var state = cards[index].state
-        cards[index].state = state == .open ? .closed : .open
+        
+        if index == openCardIndex {
+            return
+        }
+        
+        if let oci = openCardIndex {
+            cards[oci].state = .closed
+        }
+        
+        cards[index].state = .open
+        openCardIndex = index
     }
 }

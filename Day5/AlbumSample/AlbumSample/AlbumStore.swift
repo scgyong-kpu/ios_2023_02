@@ -16,3 +16,9 @@ struct Album: Decodable {
 struct AlbumResponse: Decodable {
     let albums: [Album]
 }
+
+class AlbumStore: ObservableObject {
+    private static let instance = AlbumStore()
+    static func get() -> AlbumStore { instance }
+    @Published var albums = [Album]()
+}

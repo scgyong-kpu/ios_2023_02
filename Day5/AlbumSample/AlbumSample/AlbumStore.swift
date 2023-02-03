@@ -42,4 +42,19 @@ class AlbumStore: ObservableObject {
 
         albums = albumResponse.albums
     }
+    func loadRemote() {
+        let url = URL(string: "http://scgyong.net/thumbs/index.php")!
+        URLSession.shared.dataTask(with: url) { data, resp, err in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            guard let albumResponse = try? decoder.decode(AlbumResponse.self, from: data) else {
+                print("Invalid JSON?")
+                return
+            }
+
+            OperationQueue.main.addOperation {
+                self.albums = albumResponse.albums
+            }
+        }.resume()
+    }
 }

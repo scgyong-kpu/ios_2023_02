@@ -39,9 +39,15 @@ struct AlbumItemView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 64)
-            VStack {
+            VStack(alignment: .leading) {
                 Text(album.albumTitle)
+                    .font(.headline)
+                    .lineLimit(2)
+                    .foregroundColor(.blue)
                 Text(album.artistName)
+                    .font(.footnote)
+                    .foregroundColor(.green)
+                    .padding(.top, 4)
             }
         }
     }

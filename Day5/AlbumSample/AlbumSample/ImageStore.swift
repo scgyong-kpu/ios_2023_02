@@ -10,7 +10,7 @@ import SwiftUI
 class ImageStore {
     static var cache = [String: Image]()
 
-    static func defImage() -> Image { Image("music.note.list") }
+    static func defImage() -> Image { Image(systemName: "music.note.list") }
     static func load(urlString: String, callback: @escaping (Image)->()) -> Image {
         if let img = cache[urlString] {
             return img

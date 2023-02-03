@@ -33,6 +33,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct AlbumItemView: View {
     let album: Album
+    @State var image: Image?
     var body: some View {
         HStack {
             albumImage()
@@ -52,7 +53,11 @@ struct AlbumItemView: View {
         }
     }
     func albumImage() -> Image {
-        Image(systemName: "music.note.list")
+//        if image != nil { return image! }
+        if let image = image { return image }
+        return ImageStore.load(urlString: album.image) { img in
+            image = img
+        }
     }
 }
 

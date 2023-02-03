@@ -35,7 +35,7 @@ struct AlbumItemView: View {
     let album: Album
     var body: some View {
         HStack {
-            Image(systemName: "music.note.list")
+            albumImage()
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 64)
@@ -50,6 +50,9 @@ struct AlbumItemView: View {
                     .padding(.top, 4)
             }
         }
+    }
+    func albumImage() -> Image {
+        Image(systemName: "music.note.list")
     }
 }
 

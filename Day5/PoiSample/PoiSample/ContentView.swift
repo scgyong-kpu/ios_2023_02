@@ -10,11 +10,18 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var poiData = PoiDataStore.get()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(poiData.items, id: \.RESTRT_NM) { item in
+                        NavigationLink {
+                            Text(item.RESTRT_NM)
+                        } label: {
+                            Text(item.RESTRT_NM)
+                        }
+                    }
+                }
+            }
         }
         .onAppear {
             poiData.startLoading()

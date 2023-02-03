@@ -10,17 +10,30 @@ import SwiftUI
 struct PoiDetailView: View {
     let poi: PoiItem
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(poi.RESTRT_NM)
-                .font(.title)
-                .lineLimit(2)
-                .foregroundColor(.blue)
-            Text(poi.REPRSNT_FOOD_NM)
-                .font(.body)
-                .foregroundColor(.gray)
+        ScrollView(.vertical) {
+            VStack(alignment: .leading) {
+                PropertyView(imageName: "tram.circle") {
+                    Text(poi.SIGUN_NM)
+                }
+            }
         }
     }
 }
+
+struct PropertyView<Content: View>: View {
+    let imageName: String
+    let content: ()->Content
+    
+    var body: some View {
+        HStack {
+            Image(systemName: imageName)
+                .resizable()
+                .frame(width: 30, height: 30)
+            content()
+        }
+    }
+}
+
 
 struct PoiDetailView_Previews: PreviewProvider {
     static var previews: some View {

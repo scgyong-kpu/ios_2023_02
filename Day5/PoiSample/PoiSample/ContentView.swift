@@ -14,11 +14,7 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(poiData.items, id: \.RESTRT_NM) { item in
-                        NavigationLink {
-                            Text(item.RESTRT_NM)
-                        } label: {
-                            Text(item.RESTRT_NM)
-                        }
+                        PoiItemView(item: item)
                     }
                 }
             }
@@ -33,5 +29,16 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct PoiItemView: View {
+    let item: PoiItem
+    var body: some View {
+        NavigationLink {
+            Text(item.RESTRT_NM)
+        } label: {
+            Text(item.RESTRT_NM)
+        }
     }
 }

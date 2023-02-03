@@ -36,7 +36,15 @@ struct PoiDetailView: View {
                     Text(poi.REFINE_ROADNM_ADDR)
                 }
                 PropertyView(imageName: "phone.circle") {
-                    Text(poi.TASTFDPLC_TELNO)
+                    Button {
+                        let us = "tel://\(poi.TASTFDPLC_TELNO)"
+                        guard let url = URL(string: us) else {
+                            return
+                        }
+                        UIApplication.shared.open(url)
+                    } label: {
+                        Text(poi.TASTFDPLC_TELNO)
+                    }
                 }
                 Map(coordinateRegion: $region)
                     .frame(maxWidth: .infinity)

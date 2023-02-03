@@ -18,11 +18,11 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationTitle("Restaurants")
         }
         .onAppear {
             poiData.startLoading()
         }
-        .padding()
     }
 }
 
@@ -38,7 +38,21 @@ struct PoiItemView: View {
         NavigationLink {
             Text(item.RESTRT_NM)
         } label: {
-            Text(item.RESTRT_NM)
+            HStack {
+                Image(systemName: "fork.knife.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 64)
+                VStack(alignment: .leading) {
+                    Text(item.RESTRT_NM)
+                        .font(.title)
+                        .lineLimit(2)
+                        .foregroundColor(.blue)
+                    Text(item.REPRSNT_FOOD_NM)
+                        .font(.body)
+                        .foregroundColor(.gray)
+                }
+            }
         }
     }
 }

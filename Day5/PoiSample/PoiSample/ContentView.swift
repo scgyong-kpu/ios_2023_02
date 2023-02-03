@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var poiData = PoiDataStore.get()
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+        }
+        .onAppear {
+            poiData.startLoading()
         }
         .padding()
     }

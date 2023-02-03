@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct AlbumListView: View {
+    @ObservedObject var albumStore = AlbumStore.get()
+    
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(AlbumStore.get().albums, id: \.albumTitle) { album in
+                    ForEach(albumStore.albums, id: \.albumTitle) { album in
                         AlbumItemView(album: album)
                     }
                 }
             }
-//            .onAppear {
-//                AlbumStore.get().load()
-//            }
+            .onAppear {
+                albumStore.load()
+            }
             .navigationTitle("Albums")
         }
     }
